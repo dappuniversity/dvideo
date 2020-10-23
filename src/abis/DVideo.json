@@ -2902,10 +2902,48 @@
       "links": {},
       "address": "0x459143968498D697d41D3543e3956cE719900f0E",
       "transactionHash": "0xc69f85b42f9588e3e00dafb7b1edca5a65bd3b7cc8b7c31d12d12441ff556724"
+    },
+    "1603494998361": {
+      "events": {
+        "0x2c44b862f4b4e08a26a765f9499900759a9ec95360a6f174d53163bd5d367f67": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "id",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "hash",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "title",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "author",
+              "type": "address"
+            }
+          ],
+          "name": "VideoUploaded",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x07dd1C759026495466b4e3826a5bd3dd631d2BcF",
+      "transactionHash": "0x1cf66b55812064db49a1f04a4d2ee10df01bf0dee44e9e7efc78616c5f47f231"
     }
   },
   "schemaVersion": "3.2.5",
-  "updatedAt": "2020-10-23T20:41:22.278Z",
+  "updatedAt": "2020-10-23T23:17:57.337Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
