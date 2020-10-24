@@ -11,52 +11,34 @@ render() {
 			<div className="row">
 				<div className="col-md-10">
 					<div className="embed-responsive embed-responsive-16by9" style={{ maxHeight: '768px'}}>
-						<video
-							src={`https://ipfs.infura.io/ipfs/${this.props.currentHash}`}
-							controls
-							>
-						</video>
+						{/* Video... */}
 					</div>
-				<h3><b><i>{this.props.currentTitle}</i></b></h3>
+				<h3>{/* Code... */}</h3>
 				</div>
-				<div className="col-md-2 border border-danger overflow-auto text-center" style={{ maxHeight: '768px', minWidth: '175px' }}>
-		    	<h5><b>Share Video</b></h5>
+				<div className="col-md-2 overflow-auto text-center" style={{ maxHeight: '768px', minWidth: '175px' }}>
+		    	<h5><b>{/* Share Video */}</b></h5>
 		        <form onSubmit={(event) => {
-			          event.preventDefault()
-			          const title = this.videoTitle.value
-			          this.props.uploadVideo(title)
+			        {/* Upload Video...*/}
 		        	}} >
 		        	&nbsp;
-		          <input type='file' accept=".mp4, .mkv .ogg .wmv" onChange={this.props.captureFile} style={{ width: '250px' }} />
+		        	{/* Get Video...*/}
 		            <div className="form-group mr-sm-2">
-	                <input
-	                  id="videoTitle"
-	                  type="text"
-	                  ref={(input) => { this.videoTitle = input }}
-	                  className="form-control-sm"
-	                  placeholder="Title..."
-	                  required />
+		            	{/* Input...*/}
 		            </div>
-		          <button type="submit" className="btn btn-danger btn-block btn-sm">Upload!</button>
+		          		{/* Button...*/}
 		          &nbsp;
 		        </form>
-						{ this.props.videos.map((video, key) => {
-							return(
-								<div className="card mb-4 text-center bg-secondary mx-auto" style={{ width: '175px'}} key={key} >
+		      	{/* Map Video...*/}
+		      		{/* Return Video...*/}
+								<div style={{ width: '175px'}}>
 									<div className="card-title bg-dark">
-										<small className="text-white"><b>{video.title}</b></small>
+										<small className="text-white"><b>{/*Video title*/}</b></small>
 									</div>
 										<div>
-											<p onClick={() => this.props.changeVideo(video.hash, video.title)}>
-												<video
-													src={`https://ipfs.infura.io/ipfs/${video.hash}`}
-													style={{ width: '150px' }}
-												/>
-											</p>
-									</div>
+											{/* Change Video...*/}
+											{/* Return Side Videos...*/}
+										</div>
 								</div>
-							)
-						})}
         </div>
 			</div>
 		</div>
