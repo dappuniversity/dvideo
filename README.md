@@ -7,8 +7,8 @@
 git clone https://github.com/dappuniversity/dvideo
 
 ## Step 2. Install dependencies
-$ cd dvideo
-$ npm install
+`cd dvideo`
+`npm install`
 
 ## Step 3. Start Project
-$ npm start
+`npm start`
