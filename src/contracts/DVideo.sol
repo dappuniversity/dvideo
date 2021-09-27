@@ -1,4 +1,10 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity >=0.4.0 <0.9.0;
+
+// 1. model video
+// 2. store video
+// 3. upload video
+// 4. list all videos
 
 contract DVideo {
   uint public videoCount = 0;
@@ -11,8 +17,7 @@ contract DVideo {
   //Create Event
 
 
-  constructor() public {
-  }
+  constructor() {}
 
   function uploadVideo(string memory _videoHash, string memory _title) public {
     // Make sure the video hash exists
