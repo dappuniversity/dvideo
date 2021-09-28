@@ -34,7 +34,7 @@ class App extends Component {
     //Load accounts with 'web3.eth.getAccounts(console.log);' but make it a variable
     const accounts = await web3.eth.getAccounts();
     console.log(accounts);
-    this.setState({ account: accounts[0] });
+    this.setState({ accounts:[0] });
     //Add first account the the state
 
     //Get network ID
@@ -70,6 +70,7 @@ class App extends Component {
 
   }
 
+  // this means that hey if shit doesn't run then set these inputs as default. Used for when the user has not yet signed on.
   constructor(props) {
     super(props)
     this.state = {
@@ -86,7 +87,7 @@ class App extends Component {
       <div>
         <Navbar 
           //Account
-          account = {this.state.account}
+         account = { this.state.account }
         />
         { this.state.loading
           ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
