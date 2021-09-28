@@ -31,7 +31,9 @@ class App extends Component {
 
   async loadBlockchainData() {
     const web3 = window.web3
-    //Load accounts
+    //Load accounts with 'web3.eth.getAccounts(console.log);' but make it a variable
+    const accounts = await web3.eth.getAccounts();
+    console.log(accounts);
     //Add first account the the state
 
     //Get network ID
