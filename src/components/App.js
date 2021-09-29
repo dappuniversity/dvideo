@@ -38,8 +38,16 @@ class App extends Component {
     //Add first account the the state
 
     //Get network ID
+    const networkId = await web3.eth.net.getId()
     //Get network data
+    const networkData = DVideo.networks[networkId]
     //Check if net data exists, then
+    if (networkData) {
+      const dvideo = new web3.eth.Contract(DVideo.abi, DVideo.networks[networkId].address)
+      console.log(DVideo)
+    } else {
+      window.alert('ya fucked up somewhere')
+    }
       //Assign dvideo contract to a variable
       //Add dvideo to the state
 
@@ -75,7 +83,7 @@ class App extends Component {
     super(props)
     this.state = {
       loading: false,
-      account: '0x0'
+      account: '',
       //set states
     }
 

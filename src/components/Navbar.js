@@ -20,12 +20,23 @@ class Navbar extends Component {
           <li className="nav-item text-nowrap d-none d-sm-none d-sm-block">
             <small className="text-secondary">
               <small id="account">
+ 
               {/* Account... */}
-              {this.props.account}
+              {  this.props.account }
+
               </small>
             </small>
               {/* Return Account&Identicon... */}
-              
+              {this.props.account
+                ? <img
+                    className="ml-2"
+                    width='30'
+                    height='30'
+                    src={`data:images/png;base64, ${new Identicon(this.props.account, 30).toString() }` }
+                    alt=""
+                />
+                : <span></span>
+              }
           </li>
         </ul>
       </nav>
