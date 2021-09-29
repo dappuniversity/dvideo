@@ -97,7 +97,22 @@ class App extends Component {
 
   //Upload video
   uploadVideo = title => {
+    console.log("Submitting file to IPFS...")
 
+    //adding file to the IPFS
+    // ipfs.add(file, callback)
+    ipfs.add(this.state.buffer, (error, result) => {
+      console.log('IPFS result', result);
+      if(error) {
+        console.error(error) 
+        return
+      }
+      // put on blockchain:
+      this.setState({ loading: true })
+      this.state.dvideo.methods.uploadVideo(result[0].hash, title).send({ from: this.state.account }).on('transactionHash', (hash) => {
+        this.setState({ loading: false })
+      })
+    })
   }
 
   //Change Video
@@ -132,7 +147,8 @@ class App extends Component {
         { this.state.loading
           ? <div id="loader" className="text-center mt-5"><p>Loading...</p></div>
           : <Main
-              //states&functions aka captureFile
+              //states&functions
+              uploadVideo={this.uploadVideo}
               captureFile={this.captureFile}
             />
         }

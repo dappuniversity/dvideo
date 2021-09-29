@@ -20,7 +20,10 @@ class Main extends Component {
             <h5><b>{ /* Share Video */}</b></h5>
 
             <form onSubmit={(event) => {
+
               {/* Upload Video...*/}
+              const title = this.videoTitle.value
+              this.props.uploadVideo(title)
             }} >
               &nbsp;
               {/* upload your video */}
