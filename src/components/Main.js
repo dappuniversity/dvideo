@@ -12,16 +12,20 @@ class Main extends Component {
           <div className="col-md-10">
             <div className="embed-responsive embed-responsive-16by9" style={{ maxHeight: '768px'}}>
               {/* Video... */}
+              <video src={`https://ipfs.infura.io/ipfs/${this.props.currentHash}`} controls></video>
             </div>
-            <h3>{/* Code... */}</h3>
+            <h3>
+            {/* Current Title Here: inside the h3 */}
+            <b><i>{this.props.currentTitle}</i></b>
+            </h3>
           </div>
           <div className="col-md-2 overflow-auto text-center" style={{ maxHeight: '768px', minWidth: '175px' }}>
 
-            <h5><b>{ /* Share Video */}</b></h5>
+            <h5><b></b></h5>
 
             <form onSubmit={(event) => {
-
               {/* Upload Video...*/}
+              event.preventDefault()
               const title = this.videoTitle.value
               this.props.uploadVideo(title)
             }} >
