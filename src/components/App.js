@@ -44,7 +44,26 @@ class App extends Component {
     //Check if net data exists, then
     if (networkData) {
       const dvideo = new web3.eth.Contract(DVideo.abi, DVideo.networks[networkId].address)
-      console.log(DVideo)
+      console.log(dvideo)
+      // waits for
+      const videosCount = await dvideo.methods.videoCount().call()
+      this.setState({ videosCount })
+
+      // Load videos, sort by newest
+      for (var i=videosCount; i>=1; i--) {
+        const video = await dvideo.methods.videos(i).call()
+        this.setState({
+          videos: [...this.state.videos, video]
+        })
+      }
+
+      //Set latest video with title to view as default 
+      const latest = await dvideo.methods.videos(videosCount).call()
+      this.setState({
+        currentHash: latest.hash,
+        currentTitle: latest.title
+      })
+      this.setState({ loading: false})
     } else {
       window.alert('ya fucked up somewhere')
     }
@@ -82,8 +101,13 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      loading: false,
+      buffer: null,
       account: '',
+      dvideo: null,
+      videos: [],
+      loading: true,
+      currentHash: null,
+      currentTitle: null
       //set states
     }
 
